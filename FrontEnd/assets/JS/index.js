@@ -4,9 +4,9 @@ async function init() {
 
     displayworks(allworks);
 
-    let allcategories = await getallcategories();
+    let categoriesInputSelect = await getallcategories();
 
-    displaycategories(allcategories);
+    displaycategories(categoriesInputSelect);
 }
 
 init();
@@ -49,17 +49,13 @@ function displayworks(allworks) {
 
 
 
-function displaycategories(category) {
-
-    let categoryInputSelect = document.getElementById('categories');
-
+function displaycategories(categories) {
+    let categoriesInputSelect = document.querySelector(".categories");
 
     categories.forEach((category) => {
-
-        let option = new Option(category.name, category.id);
-        categoryInputSelect.add(option);
-
+        categoriesInputSelect.insertAdjacentHTML("beforeend", `
+            <option value="${category.id}">${category.name}</option>
+        `);
     });
-
 }
 
