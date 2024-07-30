@@ -235,13 +235,16 @@ li:hover {
 	width: 100%;
 }
 
-.categories {
-	width: fit-content;
-	margin-left: auto;
-	margin-right: auto;
+.categories-buttons {
+	display: flex;
+	/* Utiliser flexbox pour centrer les boutons */
+	justify-content: center;
+	/* Centrer horizontalement */
+	margin-bottom: 20px;
+	/* Ajouter un peu d'espace en bas */
 }
 
-.categories>button {
+.category-button {
 	margin-right: 10px;
 	border: solid 1px #1D6154;
 	border-radius: 60px;
@@ -254,9 +257,10 @@ li:hover {
 	font-weight: 700;
 	font-size: 16px;
 	min-width: 100px;
+	transition: background-color 0.3s;
 }
 
-.categories>.active {
+.category-button:hover {
 	background-color: #1D6154;
 	color: white;
 }
