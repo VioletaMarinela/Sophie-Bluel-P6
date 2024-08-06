@@ -237,11 +237,8 @@ li:hover {
 
 .categories-buttons {
 	display: flex;
-	/* Utiliser flexbox pour centrer les boutons */
 	justify-content: center;
-	/* Centrer horizontalement */
 	margin-bottom: 20px;
-	/* Ajouter un peu d'espace en bas */
 }
 
 .category-button {
@@ -318,4 +315,23 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
+}
+
+.bold {
+	font-weight: 800;
+}
+
+.login-sectionW h2 {
+	text-align: center;
+	margin-bottom: 37px;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.login-form a {
+	color: #3D3D3D;
+	font-weight: 500;
 }
