@@ -7,6 +7,8 @@ async function init() {
     let categoriesInputSelect = await getallcategories();
 
     displaycategories(categoriesInputSelect);
+
+    eventclickcategorie(allworks)
 }
 
 init();
@@ -49,7 +51,6 @@ function displayworks(allworks) {
 
 function displaycategories(categories) {
     let categoriesButtonContainer = document.querySelector(".categories-buttons");
-    categoriesButtonContainer.innerHTML = ""; // Effacer les boutons existants  
 
     categoriesButtonContainer.insertAdjacentHTML("beforeend", `  
         <button class="category-button" data-id="all">Tous</button>  
@@ -60,27 +61,23 @@ function displaycategories(categories) {
             <button class="category-button" data-id="${category.id}">${category.name}</button>  
         `);
     });
+}
 
+function eventclickcategorie(allworks) {
     const buttons = document.querySelectorAll(".category-button");
     buttons.forEach(button => {
-        button.addEventListener("click", (event) => {
+        button.addEventListener("click", async (event) => {
             const categoryId = event.target.dataset.id;
             if (categoryId === "all") {
-
-                getallworks().then(allworks => {
-                    displayworks(allworks);
-                });
+                displayworks(allworks);
             } else {
-
-                filterWorksByCategory(categoryId);
+                filterWorksByCategory(categoryId, allworks);
             }
         });
     });
 }
 
-function filterWorksByCategory(categoryId) {
-    getallworks().then(allworks => {
-        const filteredWorks = allworks.filter(work => work.categoryId == categoryId);
-        displayworks(filteredWorks);
-    });
+function filterWorksByCategory(categoryId, allworks) {
+    const filteredWorks = allworks.filter(work => work.categoryId == categoryId);
+    displayworks(filteredWorks);
 }  

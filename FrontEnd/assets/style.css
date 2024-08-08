@@ -317,11 +317,8 @@ footer nav ul {
 	margin: 2em
 }
 
-.bold {
-	font-weight: 800;
-}
 
-.login-sectionW h2 {
+.login-section>h2 {
 	text-align: center;
 	margin-bottom: 37px;
 }
@@ -331,7 +328,31 @@ footer nav ul {
 	flex-direction: column;
 }
 
-.login-form a {
-	color: #3D3D3D;
-	font-weight: 500;
+.login-form>* {
+	margin: auto;
+	width: fit-content;
+}
+
+.login-form>label {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 30px;
+}
+
+.login-form>label>input {
+	margin-top: 7px;
+	border: unset;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	height: 51px;
+	width: 379px;
+	font-size: 20px;
+}
+
+.login-form>input[type="submit"] {
+	margin-top: 7px;
+	margin-bottom: 28px;
+	border: unset;
+	padding: 10px 38px 9px 39px;
+	cursor: pointer;
 }
