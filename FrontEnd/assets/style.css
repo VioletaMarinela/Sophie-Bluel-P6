@@ -356,3 +356,51 @@ footer nav ul {
 	padding: 10px 38px 9px 39px;
 	cursor: pointer;
 }
+
+/** page admin**/
+
+.edition-banner {
+	background-color: black;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 0;
+}
+
+.edition-banner i {
+	margin-right: 20px;
+	color: white;
+}
+
+#portfolio {
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+
+.modifier {
+	color: black;
+	background-color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 15px;
+	font-size: 20px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.modifier:hover {
+	background-color: #0056b3;
+}
+
+.modifier i {
+	margin-right: 10px;
+}
