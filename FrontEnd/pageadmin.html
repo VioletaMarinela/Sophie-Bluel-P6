@@ -47,10 +47,22 @@
             </article>
         </section>
         <section id="portfolio">
-            <h2>Mes Projets</h2>
-            <button class="modifier">
-                <i class="fa-regular fa-pen-to-square"></i> modifier
-            </button>
+            <div class="admintitle">
+                <h2>Mes Projets</h2>
+                <button class="modifier" id="openModal">Modifier <i class="fa-regular fa-pen-to-square"></i></button>
+            </div>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Ajouter/Supprimer Photos</h2>
+                    <form id="photoForm">
+                        <input type="file" accept="image/*" multiple><br><br>
+                        <button type="submit">Ajouter Photos</button>
+                    </form>
+                    <button id="deletePhotos">Supprimer les Photos</button>
+                </div>
+            </div>
 
             <div class="gallery">
             </div>
@@ -79,6 +91,7 @@
         </nav>
     </footer>
     <script src="./assets/JS/index.js"></script>
+    <script src="./assets/JS/modal.js"></script>
 </body>
 
 </html>

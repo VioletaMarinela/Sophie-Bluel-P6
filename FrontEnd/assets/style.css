@@ -379,28 +379,80 @@ footer nav ul {
 }
 
 #portfolio {
+	justify-content: center;
 	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 20px;
 }
 
+.admintitle {
+	display: flex;
+}
+
+.portfolio h2 {
+	align-self: center;
+}
 
 .modifier {
 	color: black;
 	background-color: white;
 	border: none;
-	border-radius: 5px;
+	border-radius: 60px;
 	padding: 10px 15px;
 	font-size: 20px;
 	cursor: pointer;
-	display: flex;
 	align-items: center;
 }
 
 .modifier:hover {
 	background-color: #0056b3;
+	color: white;
 }
 
 .modifier i {
 	margin-right: 10px;
+}
+
+/* Style de la modale */
+.modal {
+	display: none;
+	/* Caché par défaut */
+	position: fixed;
+	/* Reste en place */
+	z-index: 1;
+	/* Au-dessus des autres éléments */
+	left: 0;
+	top: 0;
+	width: 100%;
+	/* Pleine largeur */
+	height: 100%;
+	/* Pleine hauteur */
+	overflow: auto;
+	/* Activer le défilement si nécessaire */
+	background-color: rgb(0, 0, 0);
+	/* Couleur de fond */
+	background-color: rgba(0, 0, 0, 0.4);
+	/* Fond noir transparent */
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	/* 15% du haut et centré */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	/* Largeur */
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
 }
