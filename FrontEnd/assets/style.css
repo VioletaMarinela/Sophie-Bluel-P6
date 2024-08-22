@@ -541,10 +541,10 @@ h3 {
 .separator {
 	border-top: 1px solid #000000;
 	margin: 10px 0;
-	width: 420px;
+	width: 500px;
 	margin: 0 auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 /** modale step2 **/

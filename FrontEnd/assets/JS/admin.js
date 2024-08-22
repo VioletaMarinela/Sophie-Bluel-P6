@@ -80,7 +80,7 @@ function displayworks(allworks) {
             `
             <figure class="figure">
                 <img src="${work.imageUrl}" alt="${work.title}">
-                <i class="trash fa-solid fa-trash-can" onclick="supprimerTravail(event, ${work.id})"></i>
+                <i class="trash fa-solid fa-trash-can" onclick="deletephoto(event, ${work.id})"></i>
             </figure>         
             `)
     }
@@ -201,6 +201,7 @@ function addphoto() {
                 }
             });
             const result = await response.json();
+            displayworks([result]);
             // METTRE EN PLACE QUELQUECHOSE POUR EVITER LE REFRESH DE LA PAGE
         } catch (error) {
             console.error('Erreur lors de l\'ajout de la photo:', error);
@@ -208,6 +209,28 @@ function addphoto() {
     });
 }
 
-function deletephoto() {
-    //on delete
+function deletephoto(event, workId) {
+    event.stopPropagation();
+
+    const confirmDelete = confirm("Êtes-vous sûr de vouloir supprimer ce travail?");
+    if (confirmDelete) {
+        fetch(`http://localhost:5678/api/works/${workId}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: "Bearer " + this.token,
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    const figureToRemove = event.target.closest('figure');
+                    figureToRemove.remove();
+                } else {
+                    console.error("Erreur lors de la suppression de la photo.");
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la suppression de la photo:', error);
+            });
+    }
 }
+//on delete
