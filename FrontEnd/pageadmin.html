@@ -15,23 +15,71 @@
 </head>
 
 <body>
-    <header>
-        <div class="edition-banner">
-            <i class="fa-regular fa-pen-to-square"></i>
-            Mode édition
+    <div>
+        <div class="headeredition">
+            <a class="modeedition btnmodalopen" href="">
+                <i class="fa-regular fa-pen-to-square"></i>Mode édition
+            </a>
+            <button class="btnheader">publier les changements</button>
         </div>
+    </div>
+    <!-- modale step1 -->
+    <div class="modalback"></div>
+    <aside class="modale">
+        <button class="fermermodale"><i class="fa-solid fa-xmark"></i></button>
+        <div class="step1">
+            <h3>Galerie photo</h3>
+            <div class="gallery-modale"></div>
+            <div class="separator"></div>
+            <div class="btnmodale">
+                <button class="AddPhoto">Ajouter une photo</button>
+            </div>
+        </div>
+        <!-- fin modale step1 -->
+        <!-- modale step2 -->
+        <div class="step2">
+            <button class="retourstep1"><i class="fa-solid fa-arrow-left"></i></button>
+            <h3>Ajout photo</h3>
+            <div id="modalestep2">
+                <div class="uploadImage">
+                    <input type="file" accept="image/png, image/jpeg" onchange="loadFile(event); btndisabled()"
+                        id="ImageSend" />
+                    <div id="output">
+                        <i class="fa-regular fa-image"></i>
+                        <button>
+                            <i class="fa-solid fa-plus"></i> Ajouter une photo
+                        </button>
+                        <p>jpg, png : 4mo max</p>
+                    </div>
+                </div>
+                <form class="add" action="#" method="newpost">
+                    <label for="titre">Titre</label>
+                    <input type="text" name="titre" id="titre" onchange="btndisabled()">
+                    <label for="categorie">Catégorie</label>
+                    <select class="categorieselect" name="categorie" id="categorie" onchange="btndisabled()">
+                        <option value=""></option>
+                    </select>
+                    <div class="separator"></div>
+                    <input type="submit" value="Valider" id="AddWork" disabled />
+                    <p id="errormodal"></p>
+                </form>
+            </div>
+        </div>
+        <!-- fin modale step2 -->
+    </aside>
+    <header>
         <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
         <nav>
             <ul>
-                <li>projets</li>
-                <li>contact</li>
-                <li><a href="login.html" class="login-link">login</a></li>
+                <li><a href="../index.html">projets</a></li>
+                <li><a href="">contact</a></li>
+                <li><a id="logout-link">logout</a></li>
                 <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="introduction">
+        <section class="adminintro" id="introduction">
             <figure>
                 <img src="./assets/images/sophie-bluel.png" alt="">
             </figure>
@@ -47,27 +95,14 @@
             </article>
         </section>
         <section id="portfolio">
-            <div class="admintitle">
+            <div class="mesprojets">
                 <h2>Mes Projets</h2>
-                <button class="modifier" id="openModal">Modifier <i class="fa-regular fa-pen-to-square"></i></button>
+                <span>
+                    <a class="modifier btnmodalopen" href=""><i class="fa-regular fa-pen-to-square"></i>modifier</a>
+                </span>
             </div>
-
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Galerie Photo</h2>
-                    <div id="photoGallery" class="modalgallery"></div>
-                    <form id="photoForm">
-                        <input type="submit" value="Envoyer">
-                        <button type="submit">Ajouter Photos</button>
-                    </form>
-                    <button id="deletePhotos">Supprimer les Photos</button>
-                </div>
-            </div>
-
             <div class="gallery">
             </div>
-
         </section>
         <section id="contact">
             <h2>Contact</h2>
@@ -91,8 +126,7 @@
             </ul>
         </nav>
     </footer>
-    <script src="./assets/JS/index.js"></script>
-    <script src="./assets/JS/modal.js"></script>
 </body>
+<script src="./assets/JS/admin.js"></script>
 
 </html>

@@ -31,7 +31,7 @@ async function authenticateUser() {
 
         setTimeout(() => {
             window.location.href = "./pageadmin.html";
-        }, 3000);
+        }, 1000);
     } else {
         document.querySelector(".message").textContent = "Identifiants incorect.";
     }
