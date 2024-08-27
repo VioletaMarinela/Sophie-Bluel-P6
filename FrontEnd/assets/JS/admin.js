@@ -201,8 +201,7 @@ function addphoto() {
                 }
             });
             const result = await response.json();
-            displayworks([result]);
-            // METTRE EN PLACE QUELQUECHOSE POUR EVITER LE REFRESH DE LA PAGE
+            displayworks(result);
         } catch (error) {
             console.error('Erreur lors de l\'ajout de la photo:', error);
         }
@@ -233,4 +232,4 @@ function deletephoto(event, workId) {
             });
     }
 }
-//on delete
+
