@@ -372,6 +372,7 @@ header nav ul li a {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	align-items: center;
+	width: 100%;
 }
 
 .btnheader {

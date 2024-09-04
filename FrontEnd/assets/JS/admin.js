@@ -202,11 +202,26 @@ function addphoto() {
             });
             const result = await response.json();
             displayworks(result);
+            addPhotoToDOM(result);
+
+
         } catch (error) {
             console.error('Erreur lors de l\'ajout de la photo:', error);
         }
     });
 }
+
+function addPhotoToDOM(photo) {
+    const gallery = document.querySelector('.gallery'); // Sélecteur de votre galerie  
+    const figure = document.createElement('figure');
+    figure.innerHTML = `  
+        <img src="${photo.imageUrl}" alt="${photo.title}">  
+        <figcaption>${photo.title}</figcaption>  
+        <button onclick="deletephoto(event, ${photo.id})">Supprimer</button>  
+    `;
+    gallery.appendChild(figure);
+}
+
 
 function deletephoto(event, workId) {
     event.stopPropagation();
