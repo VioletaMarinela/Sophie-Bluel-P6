@@ -65,7 +65,6 @@ function displayworks(allworks) {
     gallerycontainer.innerHTML = "";
     let gallerymodal = document.querySelector(".gallery-modale");
     gallerymodal.innerHTML = "";
-    console.log(allworks)
 
     for (const work of allworks) {
         gallerycontainer.insertAdjacentHTML("beforeend",
@@ -212,18 +211,6 @@ function addphoto() {
         }
     });
 }
-
-function addPhotoToDOM(photo) {
-    const gallery = document.querySelector('.gallery');
-    const figure = document.createElement('figure');
-    figure.innerHTML = `  
-        <img src="${photo.imageUrl}" alt="${photo.title}">  
-        <figcaption>${photo.title}</figcaption>  
-        <button onclick="deletephoto(event, ${photo.id})">Supprimer</button>  
-    `;
-    gallery.appendChild(figure);
-}
-
 
 function deletephoto(event, workId) {
 
