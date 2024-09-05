@@ -65,7 +65,7 @@ function displayworks(allworks) {
     gallerycontainer.innerHTML = "";
     let gallerymodal = document.querySelector(".gallery-modale");
     gallerymodal.innerHTML = "";
-
+    console.log(allworks)
 
     for (const work of allworks) {
         gallerycontainer.insertAdjacentHTML("beforeend",
@@ -200,9 +200,11 @@ function addphoto() {
                     Authorization: "Bearer " + token,
                 }
             });
-            const result = await response.json();
-            displayworks(result);
-            addPhotoToDOM(result);
+
+            if (response.ok) {
+                let allworks = await getallworks();
+                displayworks(allworks);
+            }
 
 
         } catch (error) {
@@ -212,7 +214,7 @@ function addphoto() {
 }
 
 function addPhotoToDOM(photo) {
-    const gallery = document.querySelector('.gallery'); // Sélecteur de votre galerie  
+    const gallery = document.querySelector('.gallery');
     const figure = document.createElement('figure');
     figure.innerHTML = `  
         <img src="${photo.imageUrl}" alt="${photo.title}">  
@@ -224,7 +226,6 @@ function addPhotoToDOM(photo) {
 
 
 function deletephoto(event, workId) {
-    event.stopPropagation();
 
     const confirmDelete = confirm("Êtes-vous sûr de vouloir supprimer ce travail?");
     if (confirmDelete) {
@@ -234,10 +235,13 @@ function deletephoto(event, workId) {
                 Authorization: "Bearer " + this.token,
             }
         })
-            .then(response => {
+            .then(async response => {
                 if (response.ok) {
                     const figureToRemove = event.target.closest('figure');
                     figureToRemove.remove();
+
+                    let allworks = await getallworks();
+                    displayworks(allworks);
                 } else {
                     console.error("Erreur lors de la suppression de la photo.");
                 }
